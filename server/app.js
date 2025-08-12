@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express= require('express')
 
 const cors= require('cors')
@@ -14,9 +16,11 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.use("./api/user", userRoute)
+app.use('/api/user', userRoute)
 
-const port= process.env.PORT || 5000
+//http://localhost:5000/api/user/adduser
+
+const port= process.env.PORT 
 
 app.get('/',(req, res)=>{
     res.send("hiii from suks")
