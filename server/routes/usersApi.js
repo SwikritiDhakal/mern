@@ -52,4 +52,26 @@ router.get('/viewSingleUser/:userid', async(req,res)=>{
 }
 })
 
+
+//http://localhost:5000/api/user/updateUser
+router.put('/updateUser/:userid',async(req,res)=>{
+       const uid = req.params.userid
+
+    try {
+
+        const users= await User.findByIdAndUpdate(
+            uid,
+            {$set:req.body},
+            {new:true}
+        )
+        res.json(users)
+
+        
+    } catch (error) {
+        res.status(500).json({'error':error})
+        
+    }
+})
+
+
 module.exports= router

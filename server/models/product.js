@@ -18,3 +18,5 @@ product_description:{
 
 
 })
+
+module.exports= mongoose.model('product', productSchema)
